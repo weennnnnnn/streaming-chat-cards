@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>streaming chat cards</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Streaming Chat <span class="badge">SSE demo</span></h1>
+        <div id="conn-status" class="conn-status">connecting…</div>
+      </header>
+
+      <main id="chat" aria-live="polite"></main>
+
+      <div id="composer">
+        <input id="input" type="text" placeholder="Describe an image to generate…" autocomplete="off" />
+        <button id="send">Send</button>
+        <button id="cancel-btn" title="Cancel the running loop">✕</button>
+      </div>
+
+      <aside id="debug">
+        <h2>Debug</h2>
+        <button id="dbg-disconnect">Simulate disconnect (3s)</button>
+        <button id="dbg-fail-image">Toggle image failure</button>
+        <button id="dbg-concurrent">Send ×2 concurrently</button>
+        <div id="dbg-state">state: ?</div>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
