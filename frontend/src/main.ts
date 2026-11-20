@@ -240,8 +240,8 @@ function connect(): void {
 async function trySend(content: string): Promise<void> {
   try {
     await sendMessage(content);
-    addBubble("user", content, null);
-    addSystemLine("(message accepted, loop started)", { seq: cursor, type: "local", data: {}, ts: 0 });
+    // The user bubble itself is rendered from the server's `message` event —
+    // drawing it here too would duplicate it (UI stays a pure fold over events).
   } catch (err) {
     const e = err as Error & { status?: number };
     if (e.status === 409) {
